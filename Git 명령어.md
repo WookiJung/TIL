@@ -73,6 +73,13 @@ master = 'branch name'
 
 
 
+### Remote
+
+| Local     | Remote  |
+| --------- | ------- |
+| Learn_git | git_hub |
+|           | git_lab |
+
 
 
 
