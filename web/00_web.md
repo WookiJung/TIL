@@ -1,7 +1,48 @@
 # WEB
 
-- Markup language는 화면을 보고 내용 작성하는 거 아님!
-- 
+## HTML
+
+- Hyper Text Markup Language의 준말
+  - 선형적인 텍스트가아닌 비선형적으로 이루어진 텍스트.
+  - 웹페이지 맨앞에 들어가는 HTTP는?
+    - Hyper Text Transfer Protocol
+- Markup language
+  - tag등을 이용해 문서나 데이터의 구조를 명시하는 언어.
+  - Markup language는 화면을 보고 내용 작성하는 거 아님!
+- Open Graph Protocol
+  - HTML 문서의 메타데이터를 통해 문서의 정보를 전달.
+  - 메타 데이터는 보통 html문서의 head에 들어가있음
+
+
+
+### Element
+
+- Tag와 내용으로 구성되어있다.
+- h1, div, header, nav, aside, section, article, footer 등 block 요소
+- span, a , br, img, strong(b), em(i), 등 inline 요소
+  - strong tag나 b tag나 똑같은 작용을하지만 문서 상에서 tag의 의미를 알기 쉬운 Semantic tag인 strong tag를 쓰는편
+
+
+
+### Attribute
+
+- 태그 별로 사용할 수 있는 속성이 다름
+- ex) href
+  - <a href="#"></a>
+  - 와같이 key = "value" 형식으로 attribute 구현
+- 공통속성
+  - `id, class`
+  - `hidden`
+  - `lang` : 언어 태그. BCP47에 정의된 형식의 언어태그 중 1개. (언어하위태그 - 활자 or 지역하위태그 형식)
+  - `style` : font size, font weight, color, background-color 등..
+  - `tabidex` : 요소가 포커스 가능함을 나타내며 주로 tab키를 사용하는 연속적인 키보드 탐색에서 어느 순서에 위치할 지 지정.
+    - tabindex="-1" : 연속 키보드탐색으로는 접근 불가능, javascript나 마우스클릭 으로 포커스 가능.
+    - tabindex="0" : default. 보통 양의정수값은 안쓰는게 좋음. tabindex가 1이 가장먼저나오지만 사용자의 페이지 탐색과 조작에 방해될수 있음.
+  - `title`
+
+
+
+
 
 ## 단축키
 
