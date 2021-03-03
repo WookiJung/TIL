@@ -182,3 +182,9 @@ arr= [0]* n 을만들고 다음과 같이 코드를 짜면 호출횟수를 알 �
 ![image-20210222174101733](C:\Users\wkjung\AppData\Roaming\Typora\typora-user-images\image-20210222174101733.png)
 
 for w in 인접v 이기 때문에 위 스택이 쌓인게 일 다하면 pop되고 다음 for문을 돌림!
+
+
+
+### 반복문으로 구현
+
+![image-20210223113028168](C:\Users\wkjung\AppData\Roaming\Typora\typora-user-images\image-20210223113028168.png)
