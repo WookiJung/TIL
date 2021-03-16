@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}edit page{% endblock title %}
+{% block content %}
+<form action="{% url 'update' student.pk %}" method="POST">
+  {% csrf_token %}
+  <div>
+    name : <input type="text", name="name" value="{{ student.name }}">
+  </div>
+  <div>
+    age : <input type="text", name="age" value="{{ student.age }}">
+  </div>
+  <div>
+    major : <input type="text", name="major" value="{{ student.major }}">
+  </div>
+    intro: <textarea name="intro" id="" cols="30" rows="5">{{ student.intro }}"</textarea>
+  <div>
+    <input type="submit" class="btn btn-primary">
+  </div>
+</form>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}input page{% endblock title %}
+{% block content %}
+<form action="{% url 'create' %}" method="POST">
+  {% csrf_token %}
+  <div>
+    name : <input type="text", name="name">
+  </div>
+  <div>
+    age : <input type="text", name="age">
+  </div>
+  <div>
+    major : <input type="text", name="major">
+  </div>
+  intro: <textarea name="intro" id="" cols="30" rows="5"></textarea>
+  <div>
+    <input type="submit" class="btn btn-primary">
+  </div>
+</form>
+{% endblock content %}

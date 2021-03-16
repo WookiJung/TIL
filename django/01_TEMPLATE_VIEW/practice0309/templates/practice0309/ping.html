@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}ping{% endblock title %}
+
+{% block content %}
+<h1>ping</h1>
+{% comment %} 
+form에는 action =수신인, method=공개/비공개여부
+method의 GET 같은 경우는 URL에 공개되어 전송
+POST같은 경우 URL에 공개되지않음.
+{% endcomment %}
+<form action="Practice0309/pong/" method="GET">
+  {% comment %} label은 사람용이야. {% endcomment %}
+  <label for="kor-name">한글 이름</label>
+  <input type="text" name="kor-name" id="kor-name">
+  <label for="eng-name">English name</label>
+  <input type="text" name="eng-name" id="eng-name">
+  <input type="submit" value="전송!">
+</form>
+
+{% endblock content %}

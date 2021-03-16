@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Practice 0309{% endblock title %}
+
+{% block content %}
+<h1>Practice0309 로또 당첨횟수를 알아보자.</h1>
+<h2>이번회차 당첨번호 : {{ thistime }} + {{ bonus }}</h2>
+<p>- 1등: {{ No_1 }}</p>
+<p>- 2등: {{ No_2 }}</p>
+<p>- 3등: {{ No_3 }}</p>
+<p>- 4등: {{ No_4 }}</p>
+<p>- 5등: {{ No_5 }}</p>
+<p>꽝: {{ nope }}</p>
+{% endblock content %}

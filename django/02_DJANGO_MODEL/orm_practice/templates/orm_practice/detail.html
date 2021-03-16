@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Detail{% endblock title %}
+{% block content %}
+  <h1>신상명세</h1>
+  <h2>{{ student.name }}</h2>
+  <h3>{{ student.age }} | {{ student.major }}</h3>
+  <p>{{ student.intro }}</p>
+  <a href="{% url "index" %}" class="btn btn-primary">목록</a>
+  <a href="{% url "edit" pk=student.pk %}" class="btn btn-warning">수정</a>
+  <form action="{% url "delete" pk=student.pk %}"  method="post" class="d-inline">
+   <input type="submit" class="btn btn-danger" onclick="return confrim('삭제ㄱ?')" value="delete">
+  </form>
+{% endblock content %}
