@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>detail</h1>
+<h2>{{ article.title }}</h2>
+<p>{{ article.content }}</p>
+<div>
+  <a href="{% url 'index' %}" class="btn btn-primary"> 목록</a>
+</div>
+<div>
+  <a href="{% url 'edit' article.pk %}" class="btn btn-secondary"> EDIT</a>
+</div>
+
+
+
+{% endblock content %}
