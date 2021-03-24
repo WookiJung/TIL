@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'accounts:main' %}">홈</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href=" {% url 'accounts:profile' request.user.username %}">내 정보</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:logout' %}">로그아웃</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:update' request.user %}">회원수정</a>
+          </li>
+          <li class="nav-item">
+            <form action=" {% url 'accounts:delete' %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-secondary">회원탈퇴</button>
+            </form>
+            
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
+          </li>
+        {% endif %}
+        
+      </ul>
+    </div>
+  </div>
+</nav>

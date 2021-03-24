@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.decorators.http import require_safe, require_POST, require_http_methods
+from django.contrib.auth.decorators import login_required
 from .models import Article
 from .forms import ContactForm, ArticleForm
 
@@ -19,6 +21,8 @@ def contact(request):
         return redirect('articles:contact')
 
 
+@login_required  # not logged_in 일 경우에, 무조건 '/accounts/login/' 으로 redirect 한다.
+@require_http_methods(['GET', 'POST'])  
 def new(request):
     # 사용자 요청이 GET일 경우
     if request.method == 'GET':
@@ -46,15 +50,11 @@ def new(request):
             return render(request, 'articles/new.html', context)
 
 
-def xx(request):
-    if request.method == 'POST':
-        pass
-
-
 def index(request):
     articles = Article.objects.all()
     context = {'articles': articles}
     return render(request, 'articles/index.html', context)
+
 
 def detail(request, article_pk):
     article = get_object_or_404(Article, pk=article_pk)

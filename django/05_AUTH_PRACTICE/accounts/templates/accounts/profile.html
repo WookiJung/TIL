@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <p>ID :{{ user.username }}</p>
+  <p>성 :{{ user.first_name}}</p>
+  <p>이름 : {{ user.last_name }}</p>
+  <p>E-mail : {{ user.email }}</p>
+
+{% endblock content %}
