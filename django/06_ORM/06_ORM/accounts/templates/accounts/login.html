@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block wow %}WOW{% endblock wow %}
+
+{% block content %}
+<h1>LOGIN</h1>
+<form method="POST" action="{% url 'accounts:login' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button>회원가입</button>
+</form>
+{% endblock content %}

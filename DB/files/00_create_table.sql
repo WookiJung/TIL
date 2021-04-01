@@ -1,0 +1,1 @@
+alter table classmates rename to people
