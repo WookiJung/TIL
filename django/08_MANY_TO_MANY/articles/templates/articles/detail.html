@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Detail</h1>
+<h2>{{ article.pk }} : {{ article.title }}</h2>
+<p>{{ article.content }}</p>
+<div>
+{% if request.user in article.like_users.all %}
+  <a href=" {% url 'articles:cancel_like' article.pk %} ">
+    <span style="font-size: 3em; color: crimson;">
+      <i class="fas fa-heart"></i>
+    </span>
+  </a>
+{% else %}
+  <a href=" {% url 'articles:like' article.pk %} ">
+    <span style="font-size: 3em; color: black;">
+      <i class="fas fa-heart"></i>
+    </span>
+  </a>
+{% endif %}
+</div>
+<div>
+  <a href="{% url 'articles:index' %}">INDEX</a>
+</div>
+{% endblock content %}

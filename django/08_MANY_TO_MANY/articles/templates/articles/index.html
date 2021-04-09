@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Index</h1>
+<div>
+  <a href="{% url 'articles:create_article' %}">NEW</a>
+</div>
+<ul>
+  {% for article in articles %}
+    <li>
+      <h1>{{ article.title }}</h1>
+    </li>
+    <li>
+      <p>좋아요 :{{ article.like_users.all|length }} 명
+
+      {% if request.user in article.like_users.all %}
+        <a href=" {% url 'articles:cancel_like' article.pk %} " class = "d-inline">
+          <span style="font-size: 2em; color: crimson;">
+            <i class="fas fa-heart"></i>
+          </span>
+        </a>
+      {% else %}
+        <a href=" {% url 'articles:like' article.pk %} " class = "d-inline">
+          <span style="font-size: 2em; color: black;">
+            <i class="fas fa-heart"></i>
+          </span>
+        </a>
+      {% endif %}
+      </p>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
