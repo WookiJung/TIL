@@ -1,0 +1,12 @@
+from django.db import models
+
+# Create your models here.
+class Artist(models.Model):
+    name = models.CharField(max_length=20)
+    
+    def __str__(self):
+        return self.name
+
+class Music(models.Model):
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
+    title = models.CharField(max_length=30)
