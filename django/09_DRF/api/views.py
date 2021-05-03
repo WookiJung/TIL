@@ -66,4 +66,4 @@ def music_detail(request, music_pk):
             'message': f'{music_pk} 번 음악정보가 삭제되었습니다.',
         }
         return Response(data=data, status = status.HTTP_204_NO_CONTENT)
-        
+        status.HTTP_201_CREATED

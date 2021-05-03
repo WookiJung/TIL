@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>result</title>
+</head>
+<body>
+  <h1>DOG IMAGE</h1>
+  <button id="getDogBtn">Get DOG</button>
+  <img id="dogImage" src="" style="display: none;" alt="random Dog image">
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- CDN은 반드시 script 구문 위에 와야됨! import같은 느낌이야. -->
+  <script>
+    const getDogBtn = document.querySelector('#getDogBtn')
+
+    getDogBtn.addEventListener('click', function (event) {
+      // axios는 request같은 느낌이야.
+      axios.get('https://dog.ceo/api/breeds/image/random')  // return값은 promise야.
+        .then(function (response) {
+          console.log(response)
+          const dogUrl = response.data.message
+          const dogImage = document.querySelector('#dogImage')
+          dogImage.src = dogUrl
+          dogImage.style.display=null
+        })
+        // 성공했을때(fulfilled)
+        .catch(function (err) {
+          console.log(err)
+        })  // 거부당했을때(rejected)
+
+    })
+  </script>
+</body>
+</html>
