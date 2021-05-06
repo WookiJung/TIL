@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- v-로 시작하는 directives -->
+  
+  <div id="app">
+    <p v-text="message">
+  
+    </p>
+
+    <p>
+      {{ message }}
+    </p>
+    <p v-html="tag"></p>
+    <p>{{tag}}</p>
+    <p v-show='true'>
+      bye
+    </p>
+    <p v-show="isVisible">
+      Visible?
+    </p>
+    <!-- v-bind => V의 속성값과 연결. -->
+    <img v-bind:src="img.url" v-bind:alt="img.desc">
+  </div>
+
+  <!-- 2.6버전 Vue.js Script CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const obj = { // 특정속성들을 정의or선언
+      el: '#app',
+      data: {
+        message: 'Vuetiful',
+        tag: '<h1> hi </h1>',
+        isVisible: false,
+        img:{
+          url:'https://picsum.photos/200/300',
+          desc:'랜덤한 이미지가 나옵니다.',
+        }
+      },
+      methods: {},
+      computed: {}
+    }
+    const vm = new Vue(obj)
+  </script>
+</body>
+</html>
