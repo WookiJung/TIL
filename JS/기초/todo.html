@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .done {
+      text-decoration: line-through;
+    }
+  </style>
+  <title>TODO APP</title>
+</head>
+<body>
+  <h1>My JS Todo app</h1>
+  
+  <form id="todoForm">
+    <input id="todoInput" type="text">
+    <button>Add Todo</button>
+  </form>
+
+  <ul id="todoList"></ul>
+
+  <script>
+    function addTodo(event) {
+      event.preventDefault()
+      const inputTag = document.querySelector('#todoInput')
+      const inputData = inputTag.value
+
+      if (inputData.trim()) {
+        // Todo 추가
+        const liTag = document.createElement('li')
+        liTag.innerText = inputData
+        
+        const deleteBtn = document.createElement('button')
+        deleteBtn.innerText = 'X'
+        
+        // 삭제 버튼 눌렀을 때,
+        deleteBtn.addEventListener('click', function (event) {
+          event.target.parentNode.remove()
+          // liTag.remove()
+        })
+
+        liTag.appendChild(deleteBtn)
+
+        // 내용을 눌렀을 때,
+        liTag.addEventListener('click', function (event) {
+          event.target.classList.toggle('done')
+        })
+
+        const ulTag = document.querySelector('#todoList')
+        ulTag.appendChild(liTag)
+
+      } else {
+        alert('내용이 없습니다.')
+      }
+      inputTag.value = ""
+      
+    }
+
+    const todoForm = document.querySelector('#todoForm')
+    todoForm.addEventListener('submit', addTodo)
+  </script>
+</body>
+</html>
