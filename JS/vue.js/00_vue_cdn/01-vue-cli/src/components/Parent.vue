@@ -1,12 +1,12 @@
 <template>
   <div>
     <h2>Parent</h2>
-    <input v-model="parentData" @input="onParentInput" type="text">
+    <input v-model="parentData" @input="onParentInput">
     <p>appData: {{ appData }}</p>
-    <p>childData: {{ childData }}</p>
+    <p>chidData: {{ childData }}</p>
     <Child 
-      :appData="appData" :parentData="parentData"
-      @childInput="onChildInput"
+      :appData="appData" :parentData="parentData" 
+      @child-input="onChildInput"
     />
   </div>
 </template>
@@ -16,33 +16,32 @@ import Child from './Child.vue'
 
 export default {
   name: 'Parent',
-  props:{
-    appData: String
+  components: {
+   Child
   },
-
-  components:{
-    Child,
+  props: {
+    appData: String,
   },
-  data (){
+  data () {
     return {
       parentData: '',
       childData: '',
     }
   },
-  methods:{
-    onChildInput(childData) {
+  methods: {
+    onChildInput(childData) {  // 아래에서 발생한 event => 데이터가 함께 오기에 인자 필요
       this.childData = childData
-      this.$emit('childInput', childData)
+      this.$emit('child-input', childData)
     },
-    onParentInput() {
-      this.$emit('parentInput', this.parentData)
+
+    onParentInput() {  // 여기서 발생한 event => 위로 올리기만 하면 되기에 인자 X
+      this.$emit('parent-input', this.parentData)
     }
-    
   }
+
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
-

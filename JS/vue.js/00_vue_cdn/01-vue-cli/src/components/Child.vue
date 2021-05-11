@@ -1,7 +1,8 @@
 <template>
   <div>
     <h2>Child</h2>
-    <input v-model="childData" @input="onInputChange" type="text">
+    <input 
+      v-model="childData" @input="onInputChange">
     <p>appData: {{ appData }}</p>
     <p>parentData: {{ parentData }}</p>
   </div>
@@ -10,27 +11,23 @@
 <script>
 export default {
   name: 'Child',
-  props:{
+  props: {
     appData: String,
     parentData: String,
   },
   data() {
-    return{
+    return {
       childData: '',
     }
   },
   methods: {
     onInputChange() {
-      
-      this.$emit('childInput', this.childData)
-
-    }
+      this.$emit('child-input', this.childData)
+    },
   }
-
 }
 </script>
 
-<style scoped>
+<style>
 
-</style>>
-
+</style>

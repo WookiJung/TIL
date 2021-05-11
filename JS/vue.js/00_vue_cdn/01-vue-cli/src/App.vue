@@ -1,48 +1,41 @@
 <template>
   <div>
-    <h1>05.10 workshop</h1>
-    <h2>App</h2>
-    <input v-model="appData" type="text">
-    <p>parentData: {{parentData}}</p>
-    <p>childData: {{childData}}</p>
-    <Parent :appData='appData' 
-    @parentInput="onParentInput" @childInput="onChildInput"
-    />
+    <div id="nav">
+      <router-link :to="{ name:'Home' }">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link :to="{ name:'Lunch' }">Lunch</router-link>
+    </div>
+    <router-view/>
+
   </div>
-  <!-- 3.사용한다. -->
 </template>
 
 <script>
-import Parent from './components/Parent.vue'
-// 1. 불러서
-const obj = {
-  name: "App",
-  // 등록하고
-  components: {
-    Parent,
-  },
-  data() {
-    return {
-      appData: '',
-      parentData: '',
-      childData:'',
-    }
-  },
-  methods: {
-    onParentInput(parentData) {
-      this.parentData = parentData
-    },
-    onChildInput(childData) {
-      this.childData = childData
-    }
-
-  }
-  
+export default {
+  name: 'App',
 }
-
-export default obj
 </script>
 
-<style scoped>
 
+<style scoped>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
