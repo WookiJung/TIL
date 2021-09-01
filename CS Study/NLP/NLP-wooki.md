@@ -355,3 +355,14 @@ https://www.oss.kr/info_techtip/show/65f88554-1882-4af9-8036-6490d3314c65
 
 Neural machine translation: A review of methods, resources, and tools,(Zhixing Tan et al.) ((https://www.sciencedirect.com/science/article/pii/S2666651020300024))
 
+
+
+
+
+## 공분산과 상관계수의 관계.
+
+공분산 : 각 확률 변수가 어떻게 퍼져있는지 나타내는 것.
+
+- 
+
+![img](https://t1.daumcdn.net/cfile/tistory/2533B54B58BD19341C)
